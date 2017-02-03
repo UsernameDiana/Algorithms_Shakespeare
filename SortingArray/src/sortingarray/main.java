@@ -22,7 +22,7 @@ public class main {
 
         fileUtility fu = new fileUtility();
         
-       String[] words = fileUtility.toStringArray("shakespeare/shakespeare-complete-works.txt", "[^A-Za-z]"); 
+       String[] words = fu.toStringArray("shakespeare/shak.txt", "[^A-Za-z]"); 
         
     }
 }
