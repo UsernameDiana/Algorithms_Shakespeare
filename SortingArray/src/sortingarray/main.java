@@ -1,10 +1,6 @@
 
 package sortingarray;
 
-/**
- *
- * @author jb
- */
 public class main {
     public static void main(String[] args) {
         SortingArray sa = new SortingArray(2000);

@@ -22,9 +22,6 @@ public class SortingArray {
         return n;
     }
 
-    public void bla()
-    {}
-    
     public int[] insertionSort(int[] array) {
 
         int position;

@@ -1,9 +1,5 @@
 package sortingarray;
 
-/**
- *
- * @author jb
- */
 public class StopWatch {
 
     private final long start;
