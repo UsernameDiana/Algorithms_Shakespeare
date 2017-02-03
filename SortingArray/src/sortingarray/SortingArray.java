@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- *
- * @author jb
- */
 public class SortingArray {
 
     public int[] array;
@@ -26,6 +22,9 @@ public class SortingArray {
         return n;
     }
 
+    public void bla()
+    {}
+    
     public int[] insertionSort(int[] array) {
 
         int position;
