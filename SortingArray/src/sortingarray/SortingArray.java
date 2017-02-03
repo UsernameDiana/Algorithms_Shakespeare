@@ -6,14 +6,13 @@ import java.util.Random;
 
 public class SortingArray {
 
-    public int[] array;
+    public String[] array;
 
     public SortingArray(int size) {
-        array = new int[size]; // created new list of array with given size
-        for (int i = 0; i < array.length; i++) {
-            array[i] = randomFill();
-        }
-//        System.out.println("random numbers at index" + array[1]);
+        array = new String[size]; // created new list of array with given size
+//        for (int i = 0; i < array.length; i++) { // wont use this, because we will get text from file
+//            array[i] = randomFill();
+//        }
     }
 
     public int randomFill() { // filling array with random numbers
@@ -22,51 +21,50 @@ public class SortingArray {
         return n;
     }
 
-    public int[] insertionSort(int[] array) {
+    public String[] getArray() {
+        return array;
+    }
+
+    public void setArray(String[] array) {
+        this.array = array;
+    }
+
+    public String[] insertionSort(String[] array) { // comparing the neighbouring value
 
         int position;
-        int valueToInsert;
+        String valueToInsert;
 
         for (int i = 0; i < array.length; i++) {
             // select value to be inserted
             valueToInsert = array[i];
             position = i;
             //locate hole position for the element to be inserted
-            while (position > 0 && array[position - 1] > valueToInsert) {
+            while (position > 0 && array[position - 1].compareTo(valueToInsert) > 0) {
                 array[position] = array[position - 1];
                 position = position - 1;
             }
             // insert the number at hole position
             array[position] = valueToInsert;
-//            System.out.println("insertion sort" + array[12]);
         }
         return array;
     }
 
-    public int[] getArray() {
-        return array;
-    }
+    
+    public int[] selectionSort(String[] array) {
+        String temp, minValue;
+        int innerLoopIndex, minIndex = 0;
 
-    public void setArray(int[] array) {
-        this.array = array;
-    }
-
-    public int[] selectionSort(int[] array) {
-        int j, temp, minValue, minIndex = 0;
-        //Set MIN to location 0
-        //Search the minimum element in the list
-        //Swap with value at location MIN
-        //Increment MIN to point to next element and repeat till sorted
         for (int i = 0; i < array.length; i++) {
             minValue = array[i]; // initializing mins for the first unsorted item
             minIndex = i;
-            for (j = i; j < array.length; j++) {
-                if (array[j] < minValue) {
-                    minValue = array[j];
-                    minIndex = j;
+            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
+                
+                if (array[innerLoopIndex].compareTo(minValue)) {
+                    minValue = array[innerLoopIndex];
+                    minIndex = innerLoopIndex;
                 }
             }
-            if (minValue < array[i]) {
+            if (minValue.compareTo(array[i]){
                 temp = array[i];
                 array[i] = array[minIndex];
                 array[minIndex] = temp;
@@ -80,5 +78,4 @@ public class SortingArray {
             System.out.println("numbers : " + array[i]);
         }
     }
-
 }

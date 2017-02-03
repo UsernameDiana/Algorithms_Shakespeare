@@ -20,9 +20,6 @@ public class main {
 //        
 //        sa.arrayPrinter();
 
-        fileUtility fu = new fileUtility();
+       String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]"); 
         
-       String[] words = fu.toStringArray("shakespeare/shak.txt", "[^A-Za-z]"); 
-        
-    }
-}
+       sa.insertionSort(words); // we need to change int[] array to string [] in our sort methods
