@@ -17,6 +17,9 @@ public class main {
         System.out.println("time: " + time);
         
         sa.arrayPrinter();
+       // fileUtility fu = new fileUtility();
+        
+       //String[] words = fileUtility.toStringArray("shakespeare-complete-works.txt", "[^A-Za-z]"); 
         
     }
 }
