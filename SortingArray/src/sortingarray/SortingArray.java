@@ -23,20 +23,10 @@ public class SortingArray {
     public SortingArray(String[] array) {
         this.array = array;
     }
+
     
-
-    public int randomFill() { // filling array with random numbers
-        Random r = new Random();
-        int n = r.nextInt(100) + 1;
-        return n;
-    }
-
-    public String[] getArray() {
-        return array;
-    }
-
-    public void setArray(String[] array) {
-        this.array = array;
+    public static void mergeSort(String[] array){
+        
     }
 
     public String[] insertionSort(String[] array) { // comparing the neighbouring value
@@ -84,6 +74,20 @@ public String[] selectionSort(String[] array) {
             }
         }
         return array;
+    }
+
+    public int randomFill() { // filling array with random numbers
+        Random r = new Random();
+        int n = r.nextInt(100) + 1;
+        return n;
+    }
+
+    public String[] getArray() {
+        return array;
+    }
+
+    public void setArray(String[] array) {
+        this.array = array;
     }
 
     public void arrayPrinter() {
