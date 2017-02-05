@@ -64,19 +64,21 @@ public String[] selectionSort(String[] array) {
         String temp, minValue;
         int innerLoopIndex, minIndex = 0;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++)
+        {
             minValue = array[i]; // initializing mins for the first unsorted item
             minIndex = i;
-            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
+            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // not looking at 0 anymore
                 
-                if (array[innerLoopIndex].compareTo(minValue)<0) 
+                if (array[innerLoopIndex].compareTo(minValue)<0) // whole loop is looking for the smallest value left in the unsorted part of array
                 {
                     minValue = array[innerLoopIndex];
                     minIndex = innerLoopIndex;
                 }                
             }
+            // after looking through the array, looking what values to swap
             if (minValue.compareTo(array[i])<0){
-                temp = array[i];
+                temp = array[i]; // temporery holding place while swapping places
                 array[i] = array[minIndex];
                 array[minIndex] = temp;
             }
