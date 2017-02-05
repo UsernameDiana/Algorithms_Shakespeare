@@ -17,6 +17,14 @@ public class SortingArray {
 //        }
     }
 
+    public SortingArray() {
+    }
+
+    public SortingArray(String[] array) {
+        this.array = array;
+    }
+    
+
     public int randomFill() { // filling array with random numbers
         Random r = new Random();
         int n = r.nextInt(100) + 1;
