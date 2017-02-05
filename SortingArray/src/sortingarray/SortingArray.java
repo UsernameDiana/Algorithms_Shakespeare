@@ -60,28 +60,29 @@ public class SortingArray {
     }
 
     
-//    public int[] selectionSort(String[] array) {
-//        String temp, minValue;
-//        int innerLoopIndex, minIndex = 0;
-//
-//        for (int i = 0; i < array.length; i++) {
-//            minValue = array[i]; // initializing mins for the first unsorted item
-//            minIndex = i;
-//            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
-//                
-//                if (array[innerLoopIndex].compareTo(minValue)) {
-//                    minValue = array[innerLoopIndex];
-//                    minIndex = innerLoopIndex;
-//                }
-//            }
-//            if (minValue.compareTo(array[i]){
-//                temp = array[i];
-//                array[i] = array[minIndex];
-//                array[minIndex] = temp;
-//            }
-//        }
-//        return array;
-//    }
+public String[] selectionSort(String[] array) {
+        String temp, minValue;
+        int innerLoopIndex, minIndex = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            minValue = array[i]; // initializing mins for the first unsorted item
+            minIndex = i;
+            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
+                
+                if (array[innerLoopIndex].compareTo(minValue)<0) 
+                {
+                    minValue = array[innerLoopIndex];
+                    minIndex = innerLoopIndex;
+                }                
+            }
+            if (minValue.compareTo(array[i])<0){
+                temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+        }
+        return array;
+    }
 
     public void arrayPrinter() {
         for (int i = 0; i < array.length; i++) {

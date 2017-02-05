@@ -17,7 +17,8 @@ public class main {
         //              sa.arrayPrinter();
         SortingArray sa = new SortingArray(words);
         StopWatch timer = new StopWatch();
-        sa.insertionSort(words); // we need to change int[] array to string [] in our sort methods
+        sa.insertionSort(words);
+        sa.selectionSort(words);
         double time = timer.endTime();
         sa.arrayPrinter();
     }
