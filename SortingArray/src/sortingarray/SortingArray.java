@@ -8,9 +8,11 @@ public class SortingArray {
 
     public String[] array;
 
+    // STEP ONE we need this to take in strings instead of int
     public SortingArray(int size) {
         array = new String[size]; // created new list of array with given size
-//        for (int i = 0; i < array.length; i++) { // wont use this, because we will get text from file
+//      wont use this, because we will get text from file
+//        for (int i = 0; i < array.length; i++) {
 //            array[i] = randomFill();
 //        }
     }
@@ -50,28 +52,28 @@ public class SortingArray {
     }
 
     
-    public int[] selectionSort(String[] array) {
-        String temp, minValue;
-        int innerLoopIndex, minIndex = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            minValue = array[i]; // initializing mins for the first unsorted item
-            minIndex = i;
-            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
-                
-                if (array[innerLoopIndex].compareTo(minValue)) {
-                    minValue = array[innerLoopIndex];
-                    minIndex = innerLoopIndex;
-                }
-            }
-            if (minValue.compareTo(array[i]){
-                temp = array[i];
-                array[i] = array[minIndex];
-                array[minIndex] = temp;
-            }
-        }
-        return array;
-    }
+//    public int[] selectionSort(String[] array) {
+//        String temp, minValue;
+//        int innerLoopIndex, minIndex = 0;
+//
+//        for (int i = 0; i < array.length; i++) {
+//            minValue = array[i]; // initializing mins for the first unsorted item
+//            minIndex = i;
+//            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // both loops are dependent
+//                
+//                if (array[innerLoopIndex].compareTo(minValue)) {
+//                    minValue = array[innerLoopIndex];
+//                    minIndex = innerLoopIndex;
+//                }
+//            }
+//            if (minValue.compareTo(array[i]){
+//                temp = array[i];
+//                array[i] = array[minIndex];
+//                array[minIndex] = temp;
+//            }
+//        }
+//        return array;
+//    }
 
     public void arrayPrinter() {
         for (int i = 0; i < array.length; i++) {

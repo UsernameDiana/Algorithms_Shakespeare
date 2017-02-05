@@ -5,7 +5,7 @@ import java.io.IOException;
 public class main {
 
     public static void main(String[] args) throws IOException {
-        SortingArray sa = new SortingArray(2000);
+        SortingArray sa = new SortingArray(20);
 
 //        sa.arrayPrinter(); 
 //        int[] array = sa.getArray();
@@ -16,9 +16,12 @@ public class main {
 //        sa.arrayPrinter();
 
         String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
-
+        System.out.println(words.length); // i am getting the works with 879 words
+        
+        
         StopWatch timer = new StopWatch();
         sa.insertionSort(words); // we need to change int[] array to string [] in our sort methods
         double time = timer.endTime();
+        sa.arrayPrinter();
     }
 }
