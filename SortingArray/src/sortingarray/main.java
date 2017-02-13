@@ -22,11 +22,12 @@ public class main {
         StopWatch timer = new StopWatch();
         sa.insertionSort(words);
         sa.selectionSort(words);
-        //sa.merge(words);
         double time = timer.endTime();
         sa.arrayPrinter();
-
-        
+//
+//        SortingArray sa1 = new SortingArray(wordsForMerge);
+//        StopWatch timer1 = new StopWatch(); 
+//        sa.merge(wordsForMerge, 0, 0, 0);
     }
 
 }

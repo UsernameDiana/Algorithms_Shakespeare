@@ -12,8 +12,8 @@ public class SortingArray {
     public SortingArray(int size) {
         array = new String[size]; // created new list of array with given size
 //      wont use this, because we will get text from file
-//        for (int i = 0; i < array.length; i++) {
-//            array[i] = randomFill();
+//     for (int i = 0; i < array.length; i++) {
+//          array[i] = randomFill();
 //        }
     }
 
@@ -23,13 +23,6 @@ public class SortingArray {
     public SortingArray(String[] array) {
         this.array = array;
     }
-
-//    public int less(Comparable[] pivot,Comparable[] b)
-//    {
-//        if () return pivot;
-//       
-//        return 0;
-//    }
     
     // Abstract in-place merge trace
     //copy everything to an auxiliary array and then merging back to the original.
@@ -76,7 +69,6 @@ public class SortingArray {
             }
         }
     }
- 
     
     public static void mergeTopDown(Comparable[] a) {
         temp = new Comparable[a.length]; // Allocate space just once.
@@ -92,9 +84,7 @@ public class SortingArray {
         mergeTopDown(a, lo, mid); // Sort left half.
         mergeTopDown(a, mid + 1, hi); // Sort right half.
         merge(a, lo, mid, hi); // Merge results (code on page 271).
-    }
-
-    
+    } 
     
     public String[] insertionSort(String[] array) { // comparing the neighbouring value
 
@@ -160,5 +150,4 @@ public class SortingArray {
             System.out.println("numbers : " + array[i]);
         }
     }
-
 }
