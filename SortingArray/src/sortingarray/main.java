@@ -14,12 +14,15 @@ public class main {
 //        System.out.println("sorted");
 //        System.out.println("time: " + time);
        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
+       Comparable[] wordsForMerge = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
+       
         System.out.println("number of words " + words.length); // i am getting the works with 879 words
         //              sa.arrayPrinter();
         SortingArray sa = new SortingArray(words);
         StopWatch timer = new StopWatch();
         sa.insertionSort(words);
         sa.selectionSort(words);
+        //sa.merge(words);
         double time = timer.endTime();
         sa.arrayPrinter();
 
