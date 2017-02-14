@@ -1,4 +1,4 @@
- package sortingarray;
+package sortingarray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +23,47 @@ public class SortingArray {
     public SortingArray(String[] array) {
         this.array = array;
     }
+
+    //    Quicksort is temp divide-and-conquer method for sorting. It
+    //    works by partitioning an array into two subarrays, then sorting the subarrays independently.
+    public static void quickSort(Comparable[] temp) {
+        StdRandom.shuffle(temp); // Eliminate dependence on input.
+        sort(temp, 0, temp.length - 1);
+    }
+
+    private static void sort(Comparable[] temp, int lo, int hi) {
+        if (hi <= lo) {
+            return;
+        }
+        int j = partition(temp, lo, hi); // Partition (see page 291).
+        sort(temp, lo, j - 1); // Sort left part temp[lo .. j-1].
+        sort(temp, j + 1, hi); // Sort right part temp[j+1 .. hi].
+    }
+    
+   private static int partition(Comparable[] temp, int lo, int hi) { // Partition into temp[lo..i-1], temp[i], temp[i+1..hi].
+        int i = lo, j = hi + 1; // left and right scan indices
+        Comparable v = temp[lo]; // partitioning item
+        while (true) { // Scan right, scan left, check for scan complete, and exchange.
+            while (less(temp[++i], v)) { // temp[j].compareTo(temp[i]) <= 0
+                if (i == hi) {
+                    break;
+                }
+            }
+            while (less(v, temp[--j])) {
+                if (j == lo) {
+                    break;
+                }
+            }
+            if (i >= j) {
+                break;
+            }
+            exch(temp, i, j);
+        }
+        exch(temp, lo, j); // Put v = temp[j] into position
+        return j; // with temp[lo..j-1] <= temp[j] <= temp[j+1..hi].
+    }
+
+    
     
     // Abstract in-place merge trace
     //copy everything to an auxiliary array and then merging back to the original.
@@ -34,19 +75,15 @@ public class SortingArray {
         }
         for (int k = subIndex; k <= hi; k++) // Merge back to pivot[subIndex..hi].
         {
-            if (i > mid) 
-            {
+            if (i > mid) {
                 pivot[k] = temp[j++];
-            } 
-            else if (j > hi) {
+            } else if (j > hi) {
                 pivot[k] = temp[i++];
-            }                                   // if ( x[left].compareTo(x[right]) <= 0 
-            else if (temp[j].compareTo(temp[i]) <= 0 ) //position > 0 && array[position - 1].compareTo(valueToInsert) > 0 //less(temp[j], temp[i])
+            } // if ( x[left].compareTo(x[right]) <= 0 
+            else if (temp[j].compareTo(temp[i]) <= 0) //position > 0 && array[position - 1].compareTo(valueToInsert) > 0 //less(temp[j], temp[i])
             {
                 pivot[k] = temp[j++];
-            } 
-            else 
-            {
+            } else {
                 pivot[k] = temp[i++];
             }
         }
@@ -69,13 +106,13 @@ public class SortingArray {
             }
         }
     }
-    
+
     public static void mergeTopDown(Comparable[] a) {
         temp = new Comparable[a.length]; // Allocate space just once.
         mergeTopDown(a, 0, a.length - 1);
     }
-    
-   // Recursive mergesort implementation based on this abstract inplace merge.
+
+    // Recursive mergesort implementation based on this abstract inplace merge.
     private static void mergeTopDown(Comparable[] a, int lo, int hi) { // Sort a[lo..hi].
         if (hi <= lo) {
             return;
@@ -84,8 +121,8 @@ public class SortingArray {
         mergeTopDown(a, lo, mid); // Sort left half.
         mergeTopDown(a, mid + 1, hi); // Sort right half.
         merge(a, lo, mid, hi); // Merge results (code on page 271).
-    } 
-    
+    }
+
     public String[] insertionSort(String[] array) { // comparing the neighbouring value
 
         int position;
