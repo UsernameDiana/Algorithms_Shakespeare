@@ -13,21 +13,32 @@ public class main {
 //        sa.insertionSort(array); //0.017
 //        System.out.println("sorted");
 //        System.out.println("time: " + time);
-       String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
-       Comparable[] wordsForMerge = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
+        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shakespeare-complete-works.txt", "[^A-Za-z]");//espeare-complete-works
        
-        System.out.println("number of words " + words.length); // i am getting the works with 879 words
-        //              sa.arrayPrinter();
-        SortingArray sa = new SortingArray(words);
-        StopWatch timer = new StopWatch();
-        sa.insertionSort(words);
+        System.out.println("Number of words " + words.length); // Word count
+      
+        SortingArray sa = new SortingArray(words); // Making a new instance of Sorting class
+        // sa.arrayPrinter(); // Array before sorting
+        StopWatch start1= new StopWatch();
         sa.selectionSort(words);
-        double time = timer.endTime();
-        sa.arrayPrinter();
-//
-//        SortingArray sa1 = new SortingArray(wordsForMerge);
-//        StopWatch timer1 = new StopWatch(); 
-//        sa.merge(wordsForMerge, 0, 0, 0);
+        double stop1 = start1.endTime();
+        // sa.arrayPrinter(); // Sorted array
+        
+        SortingArray sa2 = new SortingArray(words);
+        StopWatch start2 = new StopWatch();
+        sa2.insertionSort(words);
+        double stop2 = start2.endTime();
+        // sa2.arrayPrinter();
+
+        Comparable[] wordsForMerge = fileUtility.toStringArray("build/classes/shakespeare/shakespeare-complete-works.txt", "[^A-Za-z]");
+        MergeSort mSort = new MergeSort(wordsForMerge);
+        StopWatch start3 = new StopWatch(); 
+        mSort.mergeTopDown(wordsForMerge);
+        double stop3 = start3.endTime();
+        
+        System.out.println("Time of Selection Sort: " + stop1);
+        System.out.println("Time of Insertion Sort: " + stop2);
+        System.out.println("Time of Merge Sort: " + stop3);
     }
 
 }

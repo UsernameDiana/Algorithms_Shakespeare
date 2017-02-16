@@ -1,127 +1,73 @@
 package sortingarray;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class SortingArray {
 
     public String[] array;
-    private static Comparable[] temp; // auxiliary(additional) array for merges in Top-down merge sort
+//    private static Comparable[] temp; // auxiliary(additional) array for merges in Top-down merge sort
+
+    public SortingArray() {
+    }
 
     public SortingArray(int size) {
         array = new String[size]; // created new list of array with given size
-//      wont use this, because we will get text from file
-//     for (int i = 0; i < array.length; i++) {
-//          array[i] = randomFill();
-//        }
-    }
-
-    public SortingArray() {
+        //      wont use this, because we will get text from file
+        //     for (int i = 0; i < array.length; i++) {
+        //          array[i] = randomFill();
+        //        }
     }
 
     public SortingArray(String[] array) {
         this.array = array;
     }
-
-    //    Quicksort is temp divide-and-conquer method for sorting. It
-    //    works by partitioning an array into two subarrays, then sorting the subarrays independently.
-    public static void quickSort(Comparable[] temp) {
-        StdRandom.shuffle(temp); // Eliminate dependence on input.
-        sort(temp, 0, temp.length - 1);
-    }
-
-    private static void sort(Comparable[] temp, int lo, int hi) {
-        if (hi <= lo) {
-            return;
-        }
-        int j = partition(temp, lo, hi); // Partition (see page 291).
-        sort(temp, lo, j - 1); // Sort left part temp[lo .. j-1].
-        sort(temp, j + 1, hi); // Sort right part temp[j+1 .. hi].
-    }
     
-   private static int partition(Comparable[] temp, int lo, int hi) { // Partition into temp[lo..i-1], temp[i], temp[i+1..hi].
-        int i = lo, j = hi + 1; // left and right scan indices
-        Comparable v = temp[lo]; // partitioning item
-        while (true) { // Scan right, scan left, check for scan complete, and exchange.
-            while (less(temp[++i], v)) { // temp[j].compareTo(temp[i]) <= 0
-                if (i == hi) {
-                    break;
-                }
-            }
-            while (less(v, temp[--j])) {
-                if (j == lo) {
-                    break;
-                }
-            }
-            if (i >= j) {
-                break;
-            }
-            exch(temp, i, j);
-        }
-        exch(temp, lo, j); // Put v = temp[j] into position
-        return j; // with temp[lo..j-1] <= temp[j] <= temp[j+1..hi].
+     public String[] getArray() {
+        return array;
     }
 
-    
-    
-    // Abstract in-place merge trace
-    //copy everything to an auxiliary array and then merging back to the original.
-    public static void merge(Comparable[] pivot, int subIndex, int mid, int hi) { // Merge into new array
-        int i = subIndex, j = mid + 1;
-        for (int k = subIndex; k <= hi; k++) // Copy pivot[subIndex..hi] to temp[subIndex..hi]
-        {
-            temp[k] = pivot[k];
-        }
-        for (int k = subIndex; k <= hi; k++) // Merge back to pivot[subIndex..hi].
-        {
-            if (i > mid) {
-                pivot[k] = temp[j++];
-            } else if (j > hi) {
-                pivot[k] = temp[i++];
-            } // if ( x[left].compareTo(x[right]) <= 0 
-            else if (temp[j].compareTo(temp[i]) <= 0) //position > 0 && array[position - 1].compareTo(valueToInsert) > 0 //less(temp[j], temp[i])
-            {
-                pivot[k] = temp[j++];
-            } else {
-                pivot[k] = temp[i++];
-            }
-        }
-    }
-//    This method merges by fi rst copying into the auxiliary array aux[] 
-//    then merging back to a[]. In the merge (the second for loop), 
-//    there are four conditions: left half exhausted (take from the right), 
-//    right half exhausted (take from the left), 
-//    current key on right less than current key on left (take from the right), 
-//    and current key on right greater than or equal to current key on left (take from the left).
-
-    public static void mergeBottomsUp(Comparable[] a) { // Do lg N passes of pairwise merges.
-        int N = a.length;
-        temp = new Comparable[N];
-        for (int subSize = 1; subSize < N; subSize = subSize + subSize) // subSize: subarray size
-        {
-            for (int subIndex = 0; subIndex < N - subSize; subIndex += subSize + subSize) // subIndex: subarray index
-            {
-                merge(a, subIndex, subIndex + subSize - 1, Math.min(subIndex + subSize + subSize - 1, N - 1));
-            }
-        }
+    public void setArray(String[] array) {
+        this.array = array;
     }
 
-    public static void mergeTopDown(Comparable[] a) {
-        temp = new Comparable[a.length]; // Allocate space just once.
-        mergeTopDown(a, 0, a.length - 1);
-    }
-
-    // Recursive mergesort implementation based on this abstract inplace merge.
-    private static void mergeTopDown(Comparable[] a, int lo, int hi) { // Sort a[lo..hi].
-        if (hi <= lo) {
-            return;
-        }
-        int mid = lo + (hi - lo) / 2;
-        mergeTopDown(a, lo, mid); // Sort left half.
-        mergeTopDown(a, mid + 1, hi); // Sort right half.
-        merge(a, lo, mid, hi); // Merge results (code on page 271).
-    }
+//    //    Quicksort is temp divide-and-conquer method for sorting. It
+//    //    works by partitioning an array into two subarrays, then sorting the subarrays independently.
+//    public static void quickSort(Comparable[] temp) {
+//        StdRandom.shuffle(temp); // Eliminate dependence on input.
+//        sort(temp, 0, temp.length - 1);
+//    }
+//
+//    private static void sort(Comparable[] temp, int lo, int hi) {
+//        if (hi <= lo) {
+//            return;
+//        }
+//        int j = partition(temp, lo, hi); // Partition (see page 291).
+//        sort(temp, lo, j - 1); // Sort left part temp[lo .. j-1].
+//        sort(temp, j + 1, hi); // Sort right part temp[j+1 .. hi].
+//    }
+//    
+//   private static int partition(Comparable[] temp, int lo, int hi) { // Partition into temp[lo..i-1], temp[i], temp[i+1..hi].
+//        int i = lo, j = hi + 1; // left and right scan indices
+//        Comparable v = temp[lo]; // partitioning item
+//        while (true) { // Scan right, scan left, check for scan complete, and exchange.
+//            while (less(temp[++i], v)) { // temp[j].compareTo(temp[i]) <= 0
+//                if (i == hi) {
+//                    break;
+//                }
+//            }
+//            while (less(v, temp[--j])) {
+//                if (j == lo) {
+//                    break;
+//                }
+//            }
+//            if (i >= j) {
+//                break;
+//            }
+//            exch(temp, i, j);
+//        }
+//        exch(temp, lo, j); // Put v = temp[j] into position
+//        return j; // with temp[lo..j-1] <= temp[j] <= temp[j+1..hi].
+//    }
 
     public String[] insertionSort(String[] array) { // comparing the neighbouring value
 
@@ -174,17 +120,9 @@ public class SortingArray {
         return n;
     }
 
-    public String[] getArray() {
-        return array;
-    }
-
-    public void setArray(String[] array) {
-        this.array = array;
-    }
-
     public void arrayPrinter() {
         for (int i = 0; i < array.length; i++) {
-            System.out.println("numbers : " + array[i]);
+            System.out.println("Content of array : " + array[i]);
         }
     }
 }
