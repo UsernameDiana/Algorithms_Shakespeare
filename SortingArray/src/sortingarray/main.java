@@ -13,7 +13,7 @@ public class main {
 //        sa.insertionSort(array); //0.017
 //        System.out.println("sorted");
 //        System.out.println("time: " + time);
-        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shakespeare-complete-works.txt", "[^A-Za-z]");//espeare-complete-works
+        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");//espeare-complete-works
        
         System.out.println("Number of words " + words.length); // Word count
       
@@ -30,7 +30,7 @@ public class main {
         double stop2 = start2.endTime();
         // sa2.arrayPrinter();
 
-        Comparable[] wordsForMerge = fileUtility.toStringArray("build/classes/shakespeare/shakespeare-complete-works.txt", "[^A-Za-z]");
+        Comparable[] wordsForMerge = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]");
         MergeSort mSort = new MergeSort(wordsForMerge);
         StopWatch start3 = new StopWatch(); 
         mSort.mergeTopDown(wordsForMerge);
