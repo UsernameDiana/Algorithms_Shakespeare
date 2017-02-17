@@ -1,10 +1,5 @@
 package sortingarray;
 
-
-/**
- *
- * @author Kristin
- */
 //    Quicksort is temp divide -and -conquer method for sorting.It
 //    works by partitioning an array into two subarrays, then sorting the subarrays independently.
 

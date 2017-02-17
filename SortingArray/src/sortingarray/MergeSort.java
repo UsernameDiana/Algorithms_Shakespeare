@@ -1,9 +1,5 @@
 package sortingarray;
 
-/**
- *
- * @author Kristin
- */
 public class MergeSort {
 
     private static Comparable[] temp; // auxiliary(additional) array for merges in Top-down merge sort
