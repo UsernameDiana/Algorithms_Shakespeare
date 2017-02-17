@@ -13,7 +13,7 @@ public class MergeSort {
     public MergeSort(Comparable[] array) {
         this.temp = array;
     }
-   
+
     public static void merge(Comparable[] pivot, int subIndex, int mid, int hi) { // Merge into new array
         int i = subIndex, j = mid + 1;
         for (int k = subIndex; k <= hi; k++) // Copy pivot[subIndex..hi] to temp[subIndex..hi]
@@ -35,7 +35,7 @@ public class MergeSort {
             }
         }
     }
-//    This method merges by fi rst copying into the auxiliary array aux[] 
+//    This method merges by first copying into the auxiliary array aux[] 
 //    then merging back to a[]. In the merge (the second for loop), 
 //    there are four conditions: left half exhausted (take from the right), 
 //    right half exhausted (take from the left), 

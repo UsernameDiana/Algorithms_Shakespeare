@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+// A helper class to read files into string arrays
 public class fileUtility {
 
     public static String[] toStringArray(String path, String delimiterPattern) throws IOException {
@@ -14,10 +15,9 @@ public class fileUtility {
                 .map(word -> word.toLowerCase())
                 .toArray(String[]::new);
     }
-    
-    
-    
-    //    public boolean isSorted(int limit) {
+
+    // A small method that can be used to ensure the array words is actually sorted
+//        public boolean isSorted(int limit) {
 //        if (limit <= 0 || words.length < limit) {
 //            limit = words.length;
 //        }
@@ -30,5 +30,4 @@ public class fileUtility {
 //        }
 //        return true;
 //    }
-
 }
