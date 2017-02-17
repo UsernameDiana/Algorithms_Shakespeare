@@ -1,5 +1,6 @@
 package searchingArray;
 
+// keeping the keys in order
 public interface OrderedSymbolTable< K extends Comparable<K>, V> extends SymbolTable<K, V> {
 
     K min();

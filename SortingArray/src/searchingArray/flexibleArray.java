@@ -1,6 +1,6 @@
 package searchingArray;
 
-// An implementation of a flexible array
+// An implementation of a flexible array, to add elements and to full array, by copying the existing size of an array
 public class flexibleArray<T> {
 
     private T[] oldArray = null;
