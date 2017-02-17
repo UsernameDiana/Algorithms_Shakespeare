@@ -1,61 +1,62 @@
 package searchingArray;
 
+// An implementation of a flexible array
 public class flexibleArray<T> {
 
-    private T[] less = null;
-    private T[] more = null;
+    private T[] oldArray = null;
+    private T[] doubleArray = null;
     private int split = 0;
 
     public void add(T element) {
-        if (more == null) {
-            more = (T[]) new Object[]{element};
-        } else if (less == null) {
-            less = more;
-            more = (T[]) new Object[2];
-            more[0] = less[0];
-            more[1] = element;
+        if (doubleArray == null) {
+            doubleArray = (T[]) new Object[]{element};
+        } else if (oldArray == null) {
+            oldArray = doubleArray;
+            doubleArray = (T[]) new Object[2];
+            doubleArray[0] = oldArray[0];
+            doubleArray[1] = element;
             split = 1;
-        } else if (split == less.length) {
-            less = more;
-            more = (T[]) new Object[2 * less.length];
-            more[0] = less[0];
-            more[less.length] = element;
+        } else if (split == oldArray.length) {
+            oldArray = doubleArray;
+            doubleArray = (T[]) new Object[2 * oldArray.length];
+            doubleArray[0] = oldArray[0];
+            doubleArray[oldArray.length] = element;
             split = 1;
         } else {
-            more[split] = less[split];
-            more[less.length + split] = element;
+            doubleArray[split] = oldArray[split];
+            doubleArray[oldArray.length + split] = element;
             split++;
         }
     }
 
     public T get(int index) {
-        if (less != null && split <= index && index < less.length) {
-            return less[index];
+        if (oldArray != null && split <= index && index < oldArray.length) {
+            return oldArray[index];
         }
-        if (index < less.length + split) {
-            return more[index];
+        if (index < oldArray.length + split) {
+            return doubleArray[index];
         }
         throw new ArrayIndexOutOfBoundsException();
     }
 
     public void set(int index, T element) {
-        if (less != null && split <= index && index < less.length) {
-            less[index] = element;
-        } else if (index < less.length + split) {
-            more[index] = element;
+        if (oldArray != null && split <= index && index < oldArray.length) {
+            oldArray[index] = element;
+        } else if (index < oldArray.length + split) {
+            doubleArray[index] = element;
         } else {
             add(element);
         }
     }
 
     public int size() {
-        if (more == null) {
+        if (doubleArray == null) {
             return 0;
         }
-        if (less == null) {
+        if (oldArray == null) {
             return 1;
         }
-        return less.length + split;
+        return oldArray.length + split;
     }
 
     public static void main(String[] args) {
