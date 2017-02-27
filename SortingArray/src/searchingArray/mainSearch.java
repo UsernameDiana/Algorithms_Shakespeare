@@ -3,7 +3,7 @@ package searchingArray;
 
 public class mainSearch {
     public static void main(String[] args) {
-        flexibleArray<Integer> list = new flexibleArray<>();
+        FlexibleArray<Integer> list = new FlexibleArray<>();
         // ArrayList<Integer> list = new ArrayList();
 
         long t0 = System.currentTimeMillis();
@@ -15,6 +15,17 @@ public class mainSearch {
         System.out.println("Time: " + ((t1 - t0) / 1000.0));
         System.out.println("Value at index 123456: " + list.get(123456));
         
-        
+//        
+//        ST<String, Integer> st;
+//        st = new ST<String, Integer>();
+//        
+//        for (int i = 0; !StdIn.isEmpty(); i++) {
+//            String key = StdIn.readString();
+//            st.put(key, i);
+//        }
+//        for (String s : st.keys()) {
+//            StdOut.println(s + " " + st.get(s));
+//        }
+//        
     }
 }

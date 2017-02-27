@@ -2,14 +2,14 @@ package searchingArray;
 
 
 public class ArraySymbolTable implements OrderedSymbolTable<String, Integer>{
-    private flexibleArray<Word> word = new flexibleArray<>();
     
+    private FlexibleArray<Word> word = new FlexibleArray<>();
     
     public void putCount(String key){
         
     }
     
-        @Override
+    @Override
     public void put(String key, Integer value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
