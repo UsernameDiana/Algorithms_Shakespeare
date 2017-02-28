@@ -1,5 +1,8 @@
 package searchingArray;
 
+
+
+
 // HASH is map key to the index
 // building a linked list for each table
 public class SeparateChainingHashST<Key, Value> {
