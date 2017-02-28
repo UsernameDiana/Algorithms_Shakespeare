@@ -3,7 +3,6 @@ package searchingArray;
 
 // Linked symbol table
 public class SequentialSearchST<Key, Value> {
-
     
     private Node first; // first node in the linked list
     

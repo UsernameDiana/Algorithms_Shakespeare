@@ -36,7 +36,7 @@ public class SeparateChainingHashST<Key, Value> {
 
     // all the keys in the table
     public Iterable<Key> keys() {
-
+        return null;
     } // See Exercise 3.4.19.
 
 }
