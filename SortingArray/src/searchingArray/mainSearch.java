@@ -3,8 +3,13 @@ package searchingArray;
 
 public class mainSearch {
     public static void main(String[] args) {
+        
         FlexibleArray<Integer> list = new FlexibleArray<>();
         // ArrayList<Integer> list = new ArrayList();
+        
+        LinearProbingHashST<String, Integer> lpHash = new LinearProbingHashST<>();
+        SeparateChainingHashST<String, Integer> scHash = new SeparateChainingHashST<>();
+        SequentialSearchST<String, Integer> ss = new SequentialSearchST<>();
 
         long t0 = System.currentTimeMillis();
         for (int i = 0; i < 1_000_000; i++) {
