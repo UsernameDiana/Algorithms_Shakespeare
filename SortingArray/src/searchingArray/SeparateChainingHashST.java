@@ -1,11 +1,11 @@
 package searchingArray;
 
 
+//This basic symbol-table implementation maintains an array of linked lists, using a hash function to
+//choose a list for each key. 
 
 
-// HASH is map key to the index
-// building a linked list for each table
-public class SeparateChainingHashST<Key, Value> {
+public class SeparateChainingHashST<Key, Value> { // items that collide are chained together in separate linked lists.
 
     private int N; // number of key-value pairs
     private int M; // hash table size
