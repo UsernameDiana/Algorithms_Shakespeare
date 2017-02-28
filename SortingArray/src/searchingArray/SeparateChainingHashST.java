@@ -32,6 +32,7 @@ public class SeparateChainingHashST<Key, Value> {
         st[hash(key)].put(key, val);
     }
 
+    // all the keys in the table
     public Iterable<Key> keys(){
     
     } // See Exercise 3.4.19.

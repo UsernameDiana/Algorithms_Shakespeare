@@ -16,10 +16,18 @@ public class LinearProbingHashST<Key, Value> {
         return (key.hashCode() & 0x7fffffff) % M;
     }
 
-    private void resize(){
-        
+    private void resize(int cap) {
+        LinearProbingHashST<Key, Value> t;
+        t = new LinearProbingHashST<Key, Value>(cap);
+        for (int i = 0; i < M; i++) {
+            if (keys[i] != null) {
+                t.put(keys[i], vals[i]);
+            }
+        }
+        keys = t.keys;
+        vals = t.vals;
+        M = t.M;
     } // See page 474.
-
 
     public void put(Key key, Value val) {
         if (N >= M / 2) {
