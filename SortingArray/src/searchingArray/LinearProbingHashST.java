@@ -1,5 +1,7 @@
 package searchingArray;
 
+
+
 public class LinearProbingHashST<Key, Value> {
 
     private int N; // number of key-value pairs in the table
@@ -12,6 +14,9 @@ public class LinearProbingHashST<Key, Value> {
         vals = (Value[]) new Object[M];
     }
 
+    
+//  Hash function - Compound keys. If the key type has multiple integer fields, we can typically mix them
+//  together in the way just described for String values.
     private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % M;
     }

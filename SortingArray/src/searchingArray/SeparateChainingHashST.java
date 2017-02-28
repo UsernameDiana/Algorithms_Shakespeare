@@ -20,6 +20,8 @@ public class SeparateChainingHashST<Key, Value> {
         }
     }
 
+//  Hash function - Compound keys. If the key type has multiple integer fields, we can typically mix them
+//  together in the way just described for String values.
     private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % M;
     }
@@ -33,8 +35,8 @@ public class SeparateChainingHashST<Key, Value> {
     }
 
     // all the keys in the table
-    public Iterable<Key> keys(){
-    
+    public Iterable<Key> keys() {
+
     } // See Exercise 3.4.19.
 
 }
