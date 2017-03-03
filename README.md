@@ -3,7 +3,6 @@ We used Selection sort, Merge sort and Insertion sort algorithms to sort an arra
 To see how long the different algorithms sort, we messured time.
 
 
-
 ## Searching in Shakespeare
 We saved the words of complete Shakespears work in a Symbol table. The words are keys and the values are the numbers of occurence in the text. Here we used different implementations of Symbol table: 
 
