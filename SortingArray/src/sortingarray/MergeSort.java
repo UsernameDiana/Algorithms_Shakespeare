@@ -65,4 +65,11 @@ public class MergeSort {
         mergeTopDown(a, mid + 1, hi); // Sort right half.
         merge(a, lo, mid, hi); // Merge results (code on page 271).
     }
+    
+     public void arrayPrinter() {
+        for (int i = 0; i < temp.length; i++) 
+        {     
+            System.out.println("Content of array : " + temp[i]);
+        }
+    }
 }

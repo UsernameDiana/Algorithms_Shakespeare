@@ -1,7 +1,7 @@
 package sortingarray;
 
-//    Quicksort is temp divide -and -conquer method for sorting.It
-//    works by partitioning an array into two subarrays, then sorting the subarrays independently.
+//    Quicksort is temp divide -and -conquer method for sorting.
+//    It works by partitioning an array into two subarrays, then sorting the subarrays independently.
 
 public class QuickSort {
     
@@ -54,5 +54,12 @@ public class QuickSort {
             a[i] = a[j];
             a[j] = tmp;
         }
+    
+     public void arrayPrinter() {
+        for (int i = 0; i < temp.length; i++) 
+        {     
+            System.out.println("Content of array : " + temp[i]);
+        }
+    }
     
 }

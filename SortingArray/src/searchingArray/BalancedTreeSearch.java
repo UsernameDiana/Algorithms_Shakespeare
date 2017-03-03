@@ -20,7 +20,8 @@ public class BalancedTreeSearch<Key extends Comparable<Key>, Value> {
         private Node left, right;  // links to left and right subtrees
         private boolean color;     // color of parent link
 
-        public Node(Key key, Value val, boolean color) {
+        public Node(Key key, Value val, boolean color) // Node within a node references to left and right
+        {
             this.key = key;
             this.val = val;
             this.color = color;
@@ -81,7 +82,6 @@ public class BalancedTreeSearch<Key extends Comparable<Key>, Value> {
         if (isRed(h.left) && isRed(h.right)) {
             flipColors(h);
         }
-
         return h;
     }
 
@@ -190,35 +190,35 @@ public class BalancedTreeSearch<Key extends Comparable<Key>, Value> {
      * O(N) time.
     **************************************************************************
      */
-    public Iterable<Key> keys() {
-        Queue<Key> queue = new Queue<Key>();
-        keys(root, queue);
-        return queue;
-    }
-
-    private void keys(Node x, Queue<Key> queue) {
-        if (x == null) {
-            return;
-        }
-        keys(x.left, queue);
-        queue.enqueue(x.key);
-        keys(x.right, queue);
-    }
-
-    /**
-     * *************************************************************************
-     * Check integrity of red-black tree data structure.
-    **************************************************************************
-     */
+//    public Iterable<Key> keys() {
+//        Queue<Key> queue = new Queue<Key>();
+//        keys(root, queue);
+//        return queue;
+//    }
+//
+//    private void keys(Node x, Queue<Key> queue) {
+//        if (x == null) {
+//            return;
+//        }
+//        keys(x.left, queue);
+//        queue.enqueue(x.key);
+//        keys(x.right, queue);
+//    }
+//
+//    /**
+//     * *************************************************************************
+//     * Check integrity of red-black tree data structure.
+//    **************************************************************************
+//     */
     private boolean check() {
         if (!isBST()) {
-            StdOut.println("Not in symmetric order");
+            System.out.println("Not in symmetric order"); // StdOut            
         }
         if (!is23()) {
-            StdOut.println("Not a 2-3 tree");
+            System.out.println("Not a 2-3 tree"); //StdOut
         }
         if (!isBalanced()) {
-            StdOut.println("Not balanced");
+            System.out.println("Not balanced");  // StdOut
         }
         return isBST() && is23() && isBalanced();
     }

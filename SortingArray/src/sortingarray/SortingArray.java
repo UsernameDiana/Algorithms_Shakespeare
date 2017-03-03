@@ -12,10 +12,9 @@ public class SortingArray {
 
     public SortingArray(int size) {
         array = new String[size]; // created new list of array with given size
-        //      wont use this, because we will get text from file
-        //     for (int i = 0; i < array.length; i++) {
-        //          array[i] = randomFill();
-        //        }
+        
+        //     We wont use this, because we will get text from file
+        //     for (int i = 0; i < array.length; i++) { array[i] = randomFill(); }
     }
 
     public SortingArray(String[] array) {
@@ -29,46 +28,7 @@ public class SortingArray {
     public void setArray(String[] array) {
         this.array = array;
     }
-
-//    //    Quicksort is temp divide-and-conquer method for sorting. It
-//    //    works by partitioning an array into two subarrays, then sorting the subarrays independently.
-//    public static void quickSort(Comparable[] temp) {
-//        StdRandom.shuffle(temp); // Eliminate dependence on input.
-//        sort(temp, 0, temp.length - 1);
-//    }
-//
-//    private static void sort(Comparable[] temp, int lo, int hi) {
-//        if (hi <= lo) {
-//            return;
-//        }
-//        int j = partition(temp, lo, hi); // Partition (see page 291).
-//        sort(temp, lo, j - 1); // Sort left part temp[lo .. j-1].
-//        sort(temp, j + 1, hi); // Sort right part temp[j+1 .. hi].
-//    }
-//    
-//   private static int partition(Comparable[] temp, int lo, int hi) { // Partition into temp[lo..i-1], temp[i], temp[i+1..hi].
-//        int i = lo, j = hi + 1; // left and right scan indices
-//        Comparable v = temp[lo]; // partitioning item
-//        while (true) { // Scan right, scan left, check for scan complete, and exchange.
-//            while (less(temp[++i], v)) { // temp[j].compareTo(temp[i]) <= 0
-//                if (i == hi) {
-//                    break;
-//                }
-//            }
-//            while (less(v, temp[--j])) {
-//                if (j == lo) {
-//                    break;
-//                }
-//            }
-//            if (i >= j) {
-//                break;
-//            }
-//            exch(temp, i, j);
-//        }
-//        exch(temp, lo, j); // Put v = temp[j] into position
-//        return j; // with temp[lo..j-1] <= temp[j] <= temp[j+1..hi].
-//    }
-
+    
     public String[] insertionSort(String[] array) { // comparing the neighbouring value
 
         int position;
@@ -77,6 +37,7 @@ public class SortingArray {
         for (int i = 0; i < array.length; i++) {
             // select value to be inserted
             valueToInsert = array[i];
+            //  System.out.println(valueToInsert);
             position = i;
             //locate hole position for the element to be inserted
             while (position > 0 && array[position - 1].compareTo(valueToInsert) > 0) {
