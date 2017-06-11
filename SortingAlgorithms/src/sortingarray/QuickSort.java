@@ -2,7 +2,7 @@ package sortingarray;
 
 //    Quicksort is temp divide -and -conquer method for sorting.
 //    It works by partitioning an array into two subarrays, then sorting the subarrays independently.
-
+//    O(n log n)
 public class QuickSort {
     
     private static Comparable[] temp; 
@@ -12,8 +12,7 @@ public class QuickSort {
         this.temp = array;
     }
 
-    public static void quickSort(Comparable[] temp) { // throws IllegalArgumentException
-       // StdRandom.shuffle(temp); // Eliminate dependence on input.
+    public static void quickSort(Comparable[] temp) {
         sort(temp, 0, temp.length - 1);
     }
 
@@ -22,8 +21,8 @@ public class QuickSort {
             return;
         }
         int j = partition(temp, lo, hi); // Partition (see page 291).
-        sort(temp, lo, j - 1); // Sort left part temp[lo .. j-1].
-        sort(temp, j + 1, hi); // Sort right part temp[j+1 .. hi].
+        sort(temp, lo, j - 1); // Sort left part
+        sort(temp, j + 1, hi); // Sort right part
     }
 
     private static int partition(Comparable[] temp, int lo, int hi) { // Partition into temp[lo..i-1], temp[i], temp[i+1..hi].

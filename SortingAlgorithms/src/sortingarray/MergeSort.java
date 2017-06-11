@@ -1,16 +1,45 @@
 package sortingarray;
 
+// Divide and conqure, uses recursion O(n logn)
+// very consistant (treats sorted and unsorted the same way), most used, stable
 public class MergeSort {
 
-    private static Comparable[] temp; // auxiliary(additional) array for merges in Top-down merge sort
-    // Abstract in-place merge trace
-    // copy everything to an auxiliary array and then merging back to the original.
+    private static Comparable[] temp; // additional array
 
     public MergeSort(Comparable[] array) {
         this.temp = array;
     }
 
-    public static void merge(Comparable[] pivot, int subIndex, int mid, int hi) { // Merge into new array
+    public static void mergeBottomsUp(Comparable[] a) {
+        int N = a.length;
+        temp = new Comparable[N];
+        for (int subSize = 1; subSize < N; subSize = subSize + subSize)
+        {
+            for (int subIndex = 0; subIndex < N - subSize; subIndex += subSize + subSize)
+            {
+                merge(a, subIndex, subIndex + subSize - 1, Math.min(subIndex + subSize + subSize - 1, N - 1));
+            }
+        }
+    }
+
+    public static void mergeTopDown(Comparable[] a) {
+        temp = new Comparable[a.length];
+        mergeTopDown(a, 0, a.length - 1);
+    }
+
+    // Recursive mergesort implementation based on this abstract merge.
+    private static void mergeTopDown(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) {
+            return;
+        }
+        int mid = lo + (hi - lo) / 2;
+        mergeTopDown(a, lo, mid); // Sort left half.
+        mergeTopDown(a, mid + 1, hi); // Sort right half.
+        merge(a, lo, mid, hi);
+    }
+
+    // Merge into new array
+    public static void merge(Comparable[] pivot, int subIndex, int mid, int hi) {
         int i = subIndex, j = mid + 1;
         for (int k = subIndex; k <= hi; k++) // Copy pivot[subIndex..hi] to temp[subIndex..hi]
         {
@@ -38,37 +67,8 @@ public class MergeSort {
 //    current key on right less than current key on left (take from the right), 
 //    and current key on right greater than or equal to current key on left (take from the left).
 
-    public static void mergeBottomsUp(Comparable[] a) { // Do lg N passes of pairwise merges.
-        int N = a.length;
-        temp = new Comparable[N];
-        for (int subSize = 1; subSize < N; subSize = subSize + subSize) // subSize: subarray size
-        {
-            for (int subIndex = 0; subIndex < N - subSize; subIndex += subSize + subSize) // subIndex: subarray index
-            {
-                merge(a, subIndex, subIndex + subSize - 1, Math.min(subIndex + subSize + subSize - 1, N - 1));
-            }
-        }
-    }
-
-    public static void mergeTopDown(Comparable[] a) {
-        temp = new Comparable[a.length]; // Allocate space just once.
-        mergeTopDown(a, 0, a.length - 1);
-    }
-
-    // Recursive mergesort implementation based on this abstract inplace merge.
-    private static void mergeTopDown(Comparable[] a, int lo, int hi) { // Sort a[lo..hi].
-        if (hi <= lo) {
-            return;
-        }
-        int mid = lo + (hi - lo) / 2;
-        mergeTopDown(a, lo, mid); // Sort left half.
-        mergeTopDown(a, mid + 1, hi); // Sort right half.
-        merge(a, lo, mid, hi); // Merge results (code on page 271).
-    }
-    
-     public void arrayPrinter() {
-        for (int i = 0; i < temp.length; i++) 
-        {     
+    public void arrayPrinter() {
+        for (int i = 0; i < temp.length; i++) {
             System.out.println("Content of array : " + temp[i]);
         }
     }
