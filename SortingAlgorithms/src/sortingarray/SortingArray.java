@@ -5,16 +5,12 @@ import java.util.Random;
 public class SortingArray {
 
     public String[] array;
-//    private static Comparable[] temp; // auxiliary(additional) array for merges in Top-down merge sort
 
     public SortingArray() {
     }
 
     public SortingArray(int size) {
         array = new String[size]; // created new list of array with given size
-        
-        //     We wont use this, because we will get text from file
-        //     for (int i = 0; i < array.length; i++) { array[i] = randomFill(); }
     }
 
     public SortingArray(String[] array) {
@@ -37,29 +33,28 @@ public class SortingArray {
         }
     }
     
-    public String[] insertionSort(String[] array) { // comparing the neighbouring value
+    // comparing the neighbouring value in sorted side
+    public String[] insertionSort(String[] array) {
 
         int position;
         String valueToInsert;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) { // represents where you are in the array
             // select value to be inserted
             valueToInsert = array[i];
-            //  System.out.println(valueToInsert);
             position = i;
-            //locate hole position for the element to be inserted
-            while (position > 0 && array[position - 1].compareTo(valueToInsert) > 0) {
-                
+            
+            while (position > 0 && array[position - 1].compareTo(valueToInsert) > 0) { 
+                // goes over the sorted part of the array
                 array[position] = array[position - 1]; // overwrittes current values position
-                position = position - 1; // moves position -1
+                position = position - 1;
             }
-            // insert the number at hole position
+            // insert the value at hole position
             array[position] = valueToInsert;
         }
         return array;
     }
 
-    
     
     public String[] selectionSort(String[] array) {
         String temp, minValue;

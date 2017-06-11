@@ -8,7 +8,7 @@ public class main
     {
         String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]"); // espeare-complete-works
       
-        SortingArray sa = new SortingArray(words); // Making a new instance of Sorting class
+        SortingArray sa = new SortingArray(words);
         // sa.arrayPrinter(); // Array before sorting
         StopWatch start1= new StopWatch();
         sa.selectionSort(words);
