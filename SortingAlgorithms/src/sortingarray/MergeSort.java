@@ -28,14 +28,14 @@ public class MergeSort {
     }
 
     // Recursive mergesort implementation based on this abstract merge.
-    private static void mergeTopDown(Comparable[] a, int lo, int hi) {
-        if (hi <= lo) {
+    private static void mergeTopDown(Comparable[] data, int lo, int hi) {
+        if (hi <= lo) { // there is no more to split
             return;
         }
         int mid = lo + (hi - lo) / 2;
-        mergeTopDown(a, lo, mid); // Sort left half.
-        mergeTopDown(a, mid + 1, hi); // Sort right half.
-        merge(a, lo, mid, hi);
+        mergeTopDown(data, lo, mid); // Sort left half.
+        mergeTopDown(data, mid + 1, hi); // Sort right half.
+        merge(data, lo, mid, hi);
     }
 
     // Merge into new array
@@ -51,8 +51,8 @@ public class MergeSort {
                 data[k] = temp[j++];
             } else if (j > hi) {
                 data[k] = temp[i++];
-            } // if ( x[left].compareTo(x[right]) <= 0 
-            else if (temp[j].compareTo(temp[i]) < 0) //position > 0 && array[position - 1].compareTo(valueToInsert) > 0 //less(temp[j], temp[i])
+            } 
+            else if (temp[j].compareTo(temp[i]) < 0)
             {
                 data[k] = temp[j++];
             } else {

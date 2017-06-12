@@ -33,14 +33,14 @@ public class SortingArray {
         }
     }
     
+    
     // comparing the neighbouring value in sorted side
     public String[] insertionSort(String[] array) {
 
         int position;
         String valueToInsert;
 
-        for (int i = 0; i < array.length; i++) { // represents where you are in the array
-            // select value to be inserted
+        for (int i = 1; i < array.length; i++) { // represents where you are in the array
             valueToInsert = array[i];
             position = i;
             
@@ -63,17 +63,17 @@ public class SortingArray {
         for (int i = 0; i < array.length; i++) {
             minValue = array[i]; // initializing mins for the first unsorted item
             minIndex = i;
-            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // not looking at 0 anymore
+            for (innerLoopIndex = i; innerLoopIndex < array.length; innerLoopIndex++) { // starts in unsorted part
 
-                if (array[innerLoopIndex].compareTo(minValue) < 0) // whole loop is looking for the smallest value left in the unsorted part of array
+                if (array[innerLoopIndex].compareTo(minValue) < 0) // compares th minValue to the next value
                 {
                     minValue = array[innerLoopIndex];
                     minIndex = innerLoopIndex;
                 }
             }
-            // after looking through the array, looking what values to swap
+            // once the minValue is found, it will swap
             if (minValue.compareTo(array[i]) < 0) {
-                temp = array[i]; // temporery holding place while swapping places
+                temp = array[i];
                 array[i] = array[minIndex];
                 array[minIndex] = temp;
             }
