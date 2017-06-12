@@ -25,14 +25,6 @@ public class SortingArray {
         this.array = array;
     }
     
-    public static void main(String[] args) {
-        SortingArray sa = new SortingArray();
-        String[] insertionSort = sa.insertionSort(new String[]{"dog","cat","emu"});
-        for (String string : insertionSort) {
-            System.out.println(string);
-        }
-    }
-    
     
     // comparing the neighbouring value in sorted side
     public String[] insertionSort(String[] array) {

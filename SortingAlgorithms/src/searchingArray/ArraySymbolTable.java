@@ -1,6 +1,6 @@
 package searchingArray;
 
-
+// List of keys and values
 public class ArraySymbolTable implements OrderedSymbolTable<String, Integer>{
     
     private FlexibleArray<Word> word = new FlexibleArray<>();

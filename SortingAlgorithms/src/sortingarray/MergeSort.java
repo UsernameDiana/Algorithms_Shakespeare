@@ -60,12 +60,6 @@ public class MergeSort {
             }
         }
     }
-//    This method merges by first copying into the temporary array temp[] 
-//    then merging back to a[]. In the merge (the second for loop), 
-//    there are four conditions: left half emptied (take from the right), 
-//    right half emptied (take from the left), 
-//    current key on right less than current key on left (take from the right), 
-//    and current key on right greater than or equal to current key on left (take from the left).
 
     public void arrayPrinter() {
         for (int i = 0; i < temp.length; i++) {

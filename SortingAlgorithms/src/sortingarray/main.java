@@ -6,7 +6,7 @@ public class main
 {
     public static void main(String[] args) throws IOException 
     {
-        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]"); // espeare-complete-works
+        String[] words = fileUtility.toStringArray("build/classes/shakespeare/shak.txt", "[^A-Za-z]"); // reg-exp = takes text lower and capital a-z
       
         // INSERTION SORT
         SortingArray sa = new SortingArray(words);

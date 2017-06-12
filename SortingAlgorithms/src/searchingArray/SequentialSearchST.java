@@ -1,6 +1,5 @@
 package searchingArray;
 
-
 // Linked symbol table
 public class SequentialSearchST<Key, Value> {
     

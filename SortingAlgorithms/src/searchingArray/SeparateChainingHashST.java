@@ -1,9 +1,7 @@
 package searchingArray;
 
-
 //This basic symbol-table implementation maintains an array of linked lists, using a hash function to
 //choose a list for each key. 
-
 
 public class SeparateChainingHashST<Key, Value> { // items that collide are chained together in separate linked lists.
 

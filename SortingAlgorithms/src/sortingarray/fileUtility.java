@@ -16,18 +16,4 @@ public class fileUtility {
                 .toArray(String[]::new);
     }
 
-    // A small method that can be used to ensure the array words is actually sorted
-//        public boolean isSorted(int limit) {
-//        if (limit <= 0 || words.length < limit) {
-//            limit = words.length;
-//        }
-//        String temp = words[0];
-//        for (int i = 1; i < limit; i++) {
-//            if (temp.compareTo(words[i]) > 0) {
-//                return false;
-//            }
-//            temp = words[i];
-//        }
-//        return true;
-//    }
 }
