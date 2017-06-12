@@ -39,24 +39,24 @@ public class MergeSort {
     }
 
     // Merge into new array
-    public static void merge(Comparable[] pivot, int subIndex, int mid, int hi) {
+    public static void merge(Comparable[] data, int subIndex, int mid, int hi) {
         int i = subIndex, j = mid + 1;
         for (int k = subIndex; k <= hi; k++) // Copy pivot[subIndex..hi] to temp[subIndex..hi]
         {
-            temp[k] = pivot[k];
+            temp[k] = data[k];
         }
         for (int k = subIndex; k <= hi; k++) // Merge back to pivot[subIndex..hi].
         {
             if (i > mid) {
-                pivot[k] = temp[j++];
+                data[k] = temp[j++];
             } else if (j > hi) {
-                pivot[k] = temp[i++];
+                data[k] = temp[i++];
             } // if ( x[left].compareTo(x[right]) <= 0 
             else if (temp[j].compareTo(temp[i]) < 0) //position > 0 && array[position - 1].compareTo(valueToInsert) > 0 //less(temp[j], temp[i])
             {
-                pivot[k] = temp[j++];
+                data[k] = temp[j++];
             } else {
-                pivot[k] = temp[i++];
+                data[k] = temp[i++];
             }
         }
     }
