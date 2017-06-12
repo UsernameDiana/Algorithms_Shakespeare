@@ -13,7 +13,7 @@ public class MergeSort {
     public static void mergeBottomsUp(Comparable[] a) {
         int N = a.length;
         temp = new Comparable[N];
-        for (int subSize = 1; subSize < N; subSize = subSize + subSize)
+        for (int subSize = 1; subSize < N; subSize = subSize + subSize) // starting to put togeather/doubbling
         {
             for (int subIndex = 0; subIndex < N - subSize; subIndex += subSize + subSize)
             {
@@ -41,11 +41,11 @@ public class MergeSort {
     // Merge into new array
     public static void merge(Comparable[] data, int subIndex, int mid, int hi) {
         int i = subIndex, j = mid + 1;
-        for (int k = subIndex; k <= hi; k++) // Copy pivot[subIndex..hi] to temp[subIndex..hi]
+        for (int k = subIndex; k <= hi; k++) // Copy data[subIndex..hi] to temp[subIndex..hi]
         {
             temp[k] = data[k];
         }
-        for (int k = subIndex; k <= hi; k++) // Merge back to pivot[subIndex..hi].
+        for (int k = subIndex; k <= hi; k++) // Merge back to data[subIndex..hi].
         {
             if (i > mid) {
                 data[k] = temp[j++];
@@ -60,10 +60,10 @@ public class MergeSort {
             }
         }
     }
-//    This method merges by first copying into the auxiliary array aux[] 
+//    This method merges by first copying into the temporary array temp[] 
 //    then merging back to a[]. In the merge (the second for loop), 
-//    there are four conditions: left half exhausted (take from the right), 
-//    right half exhausted (take from the left), 
+//    there are four conditions: left half emptied (take from the right), 
+//    right half emptied (take from the left), 
 //    current key on right less than current key on left (take from the right), 
 //    and current key on right greater than or equal to current key on left (take from the left).
 

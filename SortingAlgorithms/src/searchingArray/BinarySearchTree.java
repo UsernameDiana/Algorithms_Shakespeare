@@ -7,8 +7,8 @@ public class BinarySearchTree<K extends Comparable<K>, V>
 
     private final K key;
     private V value;
-    private BinarySearchTree<K, V> left;
-    private BinarySearchTree<K, V> right;
+    private BinarySearchTree<K, V> left; // smaller
+    private BinarySearchTree<K, V> right; // larger
 
     public BinarySearchTree(K key, V value) {
         this.key = key;
