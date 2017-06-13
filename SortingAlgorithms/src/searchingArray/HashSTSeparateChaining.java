@@ -3,17 +3,17 @@ package searchingArray;
 //This basic symbol-table implementation maintains an array of linked lists, using a hash function to
 //choose a list for each key. 
 
-public class SeparateChainingHashST<Key, Value> { // items that collide are chained together in separate linked lists.
+public class HashSTSeparateChaining<Key, Value> { // items that collide are chained together in separate linked lists.
 
     private int N; // number of key-value pairs
     private int M; // hash table size
     private LinkedSymbolTable<Key, Value>[] st; // array of ST objects
 
-    public SeparateChainingHashST() {
+    public HashSTSeparateChaining() {
         this(997);
     }
 
-    public SeparateChainingHashST(int M) { // Create M linked lists.
+    public HashSTSeparateChaining(int M) { // Create M linked lists.
         this.M = M;
         st = (LinkedSymbolTable<Key, Value>[]) new LinkedSymbolTable[M];
         for (int i = 0; i < M; i++) {

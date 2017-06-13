@@ -7,8 +7,8 @@ public class mainSearch {
         FlexibleArray<Word> arrayST = new FlexibleArray<>();
         // ArrayList<Integer> list = new ArrayList();
         
-        LinearProbingHashST<String, Integer> lpHash = new LinearProbingHashST<>();
-        SeparateChainingHashST<String, Integer> scHash = new SeparateChainingHashST<>();
+        HashSTLinearProbing<String, Integer> lpHash = new HashSTLinearProbing<>();
+        HashSTSeparateChaining<String, Integer> scHash = new HashSTSeparateChaining<>();
         LinkedSymbolTable<String, Integer> ss = new LinkedSymbolTable<>();
 
         long t0 = System.currentTimeMillis();
