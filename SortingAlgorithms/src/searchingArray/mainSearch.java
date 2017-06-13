@@ -9,7 +9,7 @@ public class mainSearch {
         
         LinearProbingHashST<String, Integer> lpHash = new LinearProbingHashST<>();
         SeparateChainingHashST<String, Integer> scHash = new SeparateChainingHashST<>();
-        SequentialSearchST<String, Integer> ss = new SequentialSearchST<>();
+        LinkedSymbolTable<String, Integer> ss = new LinkedSymbolTable<>();
 
         long t0 = System.currentTimeMillis();
 //        for (String i = null; i < 1_000_000; i++) {

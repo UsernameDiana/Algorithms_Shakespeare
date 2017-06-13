@@ -2,9 +2,7 @@ package searchingArray;
 
 //A symbol table implemented using a left-leaning red-black BST.
 
-import java.util.Queue;
-
-public class BalancedTreeSearch<Key extends Comparable<Key>, Value> {
+public class BalancedTreeSymbolTable<Key extends Comparable<Key>, Value> {
 
     private static final boolean RED = true;
     private static final boolean BLACK = false;

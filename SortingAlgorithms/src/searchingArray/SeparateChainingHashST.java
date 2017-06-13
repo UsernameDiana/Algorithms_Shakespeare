@@ -7,7 +7,7 @@ public class SeparateChainingHashST<Key, Value> { // items that collide are chai
 
     private int N; // number of key-value pairs
     private int M; // hash table size
-    private SequentialSearchST<Key, Value>[] st; // array of ST objects
+    private LinkedSymbolTable<Key, Value>[] st; // array of ST objects
 
     public SeparateChainingHashST() {
         this(997);
@@ -15,9 +15,9 @@ public class SeparateChainingHashST<Key, Value> { // items that collide are chai
 
     public SeparateChainingHashST(int M) { // Create M linked lists.
         this.M = M;
-        st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
+        st = (LinkedSymbolTable<Key, Value>[]) new LinkedSymbolTable[M];
         for (int i = 0; i < M; i++) {
-            st[i] = new SequentialSearchST();
+            st[i] = new LinkedSymbolTable();
         }
     }
 
